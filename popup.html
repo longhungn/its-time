@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time to Stop</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="countdown">
+        <span class="timer-display"> 
+            <span class="timer-display minutes">00</span>
+            :
+            <span class="timer-display seconds">00</span>
+        </span>
+    </div>
+    <div id="timer-setup">
+        <form>
+            <div class="input-group">
+                <input class="form-control" id="inp-timer-min" type="number" max="99">
+                <div class="input-group-append">
+                    <span class="input-group-text">minutes</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <input class="form-control" id="inp-timer-sec" type="number" max="59">
+                <div class="input-group-append">
+                    <span class="input-group-text">seconds</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="btn-set-timer">Start</button>
+            <button disabled id="btn-cancel-timer" class="btn btn-danger">Stop</button>
+            <button class="debug" id="inject" >Inject</button>
+        </form>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
