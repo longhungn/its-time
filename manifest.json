@@ -10,10 +10,10 @@
       "default_title": "Set a timer!",
       "default_popup": "popup.html"
     },
-    "background": {
-      "scripts": ["background.js"],
-      "persistent": true
-    },
+    // "background": {
+    //   "scripts": ["background.js"],
+    //   "persistent": true
+    // },
     "permissions": [
       "activeTab",
       "tabs"
