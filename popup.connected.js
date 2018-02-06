@@ -12,6 +12,7 @@
     var timer = 0;
 
     port.onMessage.addListener(function(msg){
+        console.log(msg.type);
         switch (msg.type) {
             case 'UPDATE':
                 displayTimer(msg.timeLeft);
@@ -81,8 +82,8 @@
     })
     
     document.querySelector('#inject').addEventListener('click', function(){
-        console.log('debug')
-        port.postMessage({say: 'HELLO'})
+        console.log('debug');
+        port.postMessage({type: 'HELLO'});
     });
 
 })();

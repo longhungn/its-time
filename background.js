@@ -1,17 +1,12 @@
 let timer = 0;
 let timeRemaining = 0;
-let port;
 
-chrome.runtime.onConnect.addListener(function(p) {
-    console.assert(p.name == "timer");
+chrome.runtime.onConnect.addListener(function(port) {
+    console.assert(port.name == "timer");
     console.log('Connected')
-    if (p != 'timer') 
-        return;
-    
-    port = p;
 
     port.onMessage.addListener(function(msg) {
-        console.log('received a message');
+        console.log(msg);
         switch (msg.type) {
             case 'START':
                 startTimer(msg.timeLength);
@@ -25,16 +20,17 @@ chrome.runtime.onConnect.addListener(function(p) {
     function startTimer(timeLength) {
         clearInterval(timer);
         timeRemaining = timeLength;
-    
+        
         updateView();
         timer = setInterval(function () {
+            console.log('time left: '+timeRemaining)
             if (timeRemaining <= 0) {
                 endTimer();
                 return;
             }
             timeRemaining--;
             updateView();
-        });
+        }, 1000);
     }
     
     function updateView() {
