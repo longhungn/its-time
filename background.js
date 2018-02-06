@@ -3,9 +3,11 @@ class Timer extends EventEmitter {
         super()
         this.timeRemaining = 0
         this.interval = 0
+        this.running = false
     }
 
     startTimer(timeLength) {
+        this.running = true
         this.timeRemaining = timeLength
         console.log('time left: '+ this.timeRemaining)
         this.emit('update', this.timeRemaining)
@@ -18,17 +20,19 @@ class Timer extends EventEmitter {
                 return
             }
             
-        }, 1000);
+        }, 1000)
     }
 
     endTimer() {
         clearInterval(this.interval)
+        this.running = false
         console.log('done')
         chrome.tabs.executeScript({file: 'inject.js'})
     }
 
     cancelTimer() {
         clearInterval(this.interval)
+        this.running = false
         this.timeRemaining = 0
         this.emit('update', this.timeRemaining)
     }

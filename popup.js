@@ -8,6 +8,11 @@
     const setUpForm = document.querySelector('#timer-setup form');
     
     const background = chrome.extension.getBackgroundPage();
+    if (background.timer.running) {
+        disableStartBtn();
+    } else {
+        enableStartBtn();
+    }
 
     background.timer.on('update', function(time) {
         displayTimer(time);
@@ -35,17 +40,12 @@
         if (inpMinutes.value.length === 2) {
             inpSeconds.focus();
         }
-    })
+    });
 
     inpSeconds.addEventListener('keyup', function() {
         if (inpSeconds.value.length === 2) {
             startButton.focus();
         }
-    })
-    
-    document.querySelector('#inject').addEventListener('click', function(){
-        console.log('injecting');
-        chrome.tabs.executeScript({file: 'inject.js'});
     });
 
     function displayTimer(time) {

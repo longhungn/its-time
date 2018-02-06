@@ -22,6 +22,7 @@ form {
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 1em;
     padding: 0 10%;
+    padding-bottom: 23px;
     width: 460px;
 }
 

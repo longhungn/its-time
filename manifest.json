@@ -14,7 +14,7 @@
       "default_popup": "popup.html"
     },
     "background": {
-      "scripts": ["library/EventEmitter.min.js","background.new.js"]
+      "scripts": ["library/EventEmitter.min.js","background.js"]
     },
 
     "permissions": [
