@@ -14,6 +14,9 @@
         enableStartBtn();
     }
 
+    //display time remaining right after opening popup
+    displayTimer(background.timer.timeRemaining);
+
     background.timer.on('update', function(time) {
         displayTimer(time);
     })
