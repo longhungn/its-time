@@ -12,3 +12,7 @@ This is a chrome extension that works as a simple timer with a little special al
 5. Click on "Load unpacked extension" and select the folder you just cloned
 6. ??
 7. Profit
+
+
+Hint: 
+![Imgur](https://i.imgur.com/MIRXI3P.png)
